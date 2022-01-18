@@ -1,0 +1,10 @@
+@import '../../style/mixins.scss';
+@import '../../style/functions.scss';
+
+.Layout {
+	margin-left: auto;
+	margin-right: auto;
+	@include atMedium {
+		max-width: rem(800);
+	}
+}

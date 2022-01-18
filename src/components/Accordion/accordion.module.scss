@@ -1,0 +1,36 @@
+@import '../../style/functions.scss';
+
+.Accordion {
+	$spacing: rem(10);
+	display: block;
+	max-width: rem(300);
+	&_item {
+		$item: &;
+		overflow: hidden;
+		&_head {
+			padding: $spacing;
+			border-bottom: 1px solid grey;
+			font-weight: 500;
+			cursor: pointer;
+		}
+		&_content {
+			max-height: 0;
+			border-bottom: 1px solid grey;
+			transition: max-height 600ms;
+			will-change: max-height;
+			overflow-y: auto;
+			&_inner {
+				padding: $spacing;
+			}
+			&_tag {
+				font-style: italic;
+				margin-bottom: $spacing;
+			}
+		}
+		&___open {
+			#{$item}_content {
+				max-height: rem(200);
+			}
+		}
+	}
+}

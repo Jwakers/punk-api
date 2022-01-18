@@ -1,0 +1,7 @@
+@import './variables.scss';
+
+@mixin atMedium {
+	@media (min-width: $breakpoint-md) {
+		@content;
+	}
+}
