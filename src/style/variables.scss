@@ -1,3 +1,8 @@
 @import './functions.scss';
 
-$breakpoint-md: rem(772);
+$breakpoint-sm: rem(481);
+$breakpoint-md: rem(768);
+$breakpoint-lg: rem(1024);
+
+$bg-color-primary: #c4c7ff;
+$bg-color-secondary: #f4f4ff;

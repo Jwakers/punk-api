@@ -2,6 +2,7 @@
 
 .Accordion {
 	$spacing: rem(10);
+	$tspeed: 500ms;
 	display: block;
 	max-width: rem(300);
 	&_item {
@@ -9,14 +10,29 @@
 		overflow: hidden;
 		&_head {
 			padding: $spacing;
-			border-bottom: 1px solid grey;
 			font-weight: 500;
 			cursor: pointer;
+			&::after {
+				content: '';
+				position: relative;
+				top: $spacing;
+				left: -$spacing;
+				display: block;
+				width: 100%;
+				height: 1px;
+				background-color: grey;
+				transition: width $tspeed;
+			}
+			&:hover {
+				&::after {
+					width: 80%;
+				}
+			}
 		}
 		&_content {
 			max-height: 0;
-			border-bottom: 1px solid grey;
-			transition: max-height 600ms;
+			border-left: 1px solid grey;
+			transition: max-height $tspeed;
 			will-change: max-height;
 			overflow-y: auto;
 			&_inner {
@@ -31,6 +47,21 @@
 			#{$item}_content {
 				max-height: rem(200);
 			}
+			#{$item}_head {
+				&::after {
+					width: 10%;
+				}
+			}
 		}
+	}
+	&_close {
+		display: block;
+		background: none;
+		border: none;
+		color: red;
+		margin-left: auto;
+		margin-top: rem(4);
+		padding: rem(10);
+		cursor: pointer;
 	}
 }

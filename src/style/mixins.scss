@@ -1,7 +1,19 @@
 @import './variables.scss';
 
+@mixin atSmall {
+	@media (min-width: $breakpoint-sm) {
+		@content;
+	}
+}
+
 @mixin atMedium {
 	@media (min-width: $breakpoint-md) {
+		@content;
+	}
+}
+
+@mixin atLarge {
+	@media (min-width: $breakpoint-lg) {
 		@content;
 	}
 }

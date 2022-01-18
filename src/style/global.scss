@@ -1,6 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500&display=swap');
+@import './variables.scss';
 
 body {
 	font-family: 'Be Vietnam Pro', sans-serif;
 	font-weight: 400;
+	background-color: $bg-color-secondary;
+	background-image: radial-gradient($bg-color-primary 1.3px, transparent 1.3px),
+		radial-gradient($bg-color-primary 1.3px, $bg-color-secondary 1.3px);
+	background-size: 52px 52px;
+	background-position: 0 0, 26px 26px;
 }
