@@ -1,18 +1,17 @@
-### `npm start`
+### Run locally
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+`npm start`
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### What I would add:
 
-What I would add:
-
-- Better input validation and submit validation on filter inputs
-- Better error handling
-- Loading states for compoenents (show a spinner whilst the api fetches the data)
-- Overall design (currently basic styles and transitions are used, would like to expand on this with a more dynamic display, for example CTA bloks appearing in sequence, as though they were stacking.)
+- Better input and submit validation on filter inputs.
+- Better error handling (in page messageing, handle status codes etc)
+- Loading states for compoenents (show a spinner whilst the api fetches the data for example)
+- Overal design (currently basic styles and transitions are used, would like to expand on this with a more dynamic display, for example CTA bloks appearing in sequence, as though they were stacking.)
 - More filters and sorting options
-- 'No results' component (with search tips)
+- 'No results' component
 - Add pagination for larger result sets
-- Show all details of beer when CTA is clicked (new page)
+- Show all details of beer on a different page when CTA is clicked
+- Refine the sort to re-sort data when fetched, if a sort option has already been selected
+- Simple tests using Jest
+- Fix issue causing chrome browser to offer translation from French to English

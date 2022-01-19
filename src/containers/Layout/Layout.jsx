@@ -27,7 +27,6 @@ const Layout = () => {
 		try {
 			const response = await axios.get(endpoint, { params });
 			setBeers(response.data);
-			console.log(response.request.responseURL);
 		} catch (error) {
 			console.error(error);
 		}
@@ -35,7 +34,6 @@ const Layout = () => {
 
 	const handleChange = (e) => {
 		const { name, value } = e.target;
-		console.log(name, value);
 		setFormData({
 			...formData,
 			[name]: value.trim().replace(/\s/g, '_'),
@@ -48,12 +46,22 @@ const Layout = () => {
 		const cleanedFormData = Object.fromEntries(
 			Object.entries(formData).filter((item) => item[1] !== '')
 		);
-		console.log({ formData, cleanedFormData });
 		setParams({ ...initialParams, ...cleanedFormData });
 	};
 
 	const handleSortOrder = (e) => {
-		console.log(e);
+		// Convert sort options to usable object
+		const options = JSON.parse(e?.target.value);
+		const sortedBeers = [...beers];
+		sortedBeers.sort((a, b) => {
+			if (options.sort === 'desc') {
+				if (a[options.attr] <= b[options.attr]) return 1;
+				return -1;
+			}
+			if (a[options.attr] <= b[options.attr]) return -1;
+			return 1;
+		});
+		setBeers(sortedBeers);
 	};
 
 	return (
@@ -61,7 +69,11 @@ const Layout = () => {
 			<Nav />
 			{beers && (
 				<>
-					<Filters onSubmit={handleSubmit} onSort={handleSortOrder} />
+					<Filters
+						onSubmit={handleSubmit}
+						onChange={handleChange}
+						onSort={handleSortOrder}
+					/>
 					<Routes>
 						<Route path='/' exact element={<Accordion data={beers} />} />
 						<Route

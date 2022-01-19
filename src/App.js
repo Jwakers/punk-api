@@ -5,7 +5,7 @@ import './style/global.scss';
 function App() {
 	return (
 		<BrowserRouter>
-			<Layout />;
+			<Layout />
 		</BrowserRouter>
 	);
 }

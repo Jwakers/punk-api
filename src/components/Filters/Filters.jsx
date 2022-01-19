@@ -32,12 +32,17 @@ const Filters = (props) => {
 				className={`${style.Filters_input} ${style.Filters_input___select}`}
 				name='sort_order'
 				onChange={props.onSort}
+				defaultValue='default'
 			>
-				<option disabled selected>
+				<option value='default' disabled>
 					Sort order
 				</option>
-				<option value='abv_lh'>ABV - Low to High</option>
-				<option value='abv_hl'>ABV - High to Low</option>
+				<option value={JSON.stringify({ sort: 'asc', attr: 'abv' })}>
+					ABV - Low to High
+				</option>
+				<option value={JSON.stringify({ sort: 'desc', attr: 'abv' })}>
+					ABV - High to Low
+				</option>
 			</select>
 		</form>
 	);
