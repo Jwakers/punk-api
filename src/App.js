@@ -4,7 +4,7 @@ import './style/global.scss';
 
 function App() {
 	return (
-		<BrowserRouter basename='/punk-api'>
+		<BrowserRouter>
 			<Layout />
 		</BrowserRouter>
 	);

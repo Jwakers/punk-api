@@ -3,8 +3,8 @@ import NavItem from './NavItem';
 
 const Nav = () => (
 	<nav className={style.Nav}>
-		<NavItem value='Accordion' path='/' />
-		<NavItem value='Grid' path='/grid' />
+		<NavItem value='Accordion' path='punk-api/' />
+		<NavItem value='Grid' path='punk-api/grid' />
 	</nav>
 );
 
