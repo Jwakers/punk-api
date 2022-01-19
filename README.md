@@ -20,5 +20,6 @@ https://jwakers.github.io/punk-api
 - Show all details of beer on a different page when CTA is clicked
 - Refine the sort method to re-sort display when data fetched - if a sort option has already been selected
 - Simple tests using Jest
-- More fnuctional routing to handle git hub pages and local development
+- More functional routing to handle git hub pages and local development
+- update filter inputs to allow for floats
 - Fix issue causing chrome browser to offer translation from French to English

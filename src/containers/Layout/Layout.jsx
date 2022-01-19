@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import axios from 'axios';
 import style from './layout.module.scss';
 import Accordion from '../../components/Accordion/Accordion';
@@ -75,9 +75,8 @@ const Layout = () => {
 						onSort={handleSortOrder}
 					/>
 					<Routes>
-						<Route path='/' exact element={<Accordion data={beers} />} />
 						<Route
-							path='/grid'
+							path='/punk-api/grid'
 							exact
 							element={
 								<>
@@ -85,6 +84,12 @@ const Layout = () => {
 								</>
 							}
 						/>
+						<Route
+							path='/punk-api/'
+							exact
+							element={<Accordion data={beers} />}
+						/>
+						<Route exact path='*' element={<Navigate to='/punk-api/' />} />
 					</Routes>
 				</>
 			)}
