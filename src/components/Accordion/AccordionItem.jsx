@@ -1,7 +1,7 @@
 import style from './accordion.module.scss';
 
 const AccordionItem = ({ item, isOpen, onClick, handleKeypress }) => {
-	const { name, tagline, description, id } = item;
+	const { name, tagline, description, abv, id } = item;
 	return (
 		<div
 			className={`${style.Accordion_item} ${
@@ -11,7 +11,10 @@ const AccordionItem = ({ item, isOpen, onClick, handleKeypress }) => {
 			tabIndex={id}
 		>
 			<div className={style.Accordion_item_head} onClick={onClick}>
-				{name}
+				<div className={style.Accordion_item_head_inner}>
+					<span>{name}</span>
+					<span>{abv} abv</span>
+				</div>
 			</div>
 			<div className={style.Accordion_item_content}>
 				<div className={style.Accordion_item_content_inner}>

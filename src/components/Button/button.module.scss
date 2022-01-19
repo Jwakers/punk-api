@@ -1,14 +1,27 @@
-@import '../../style/variables.scss';
+@import '../../style/variables';
+@import '../../style/mixins';
 
 .Button {
 	display: inline-block;
+	width: 100%;
 	background: $color-primary;
 	border: none;
 	color: #fff;
 	padding: rem(10);
-	border-radius: 4px;
+	transition: background $transition-speed-fast;
+	will-change: background;
+	box-shadow: $box-shadow-position $color-primary-dark;
 	cursor: pointer;
+	@include atSmall {
+		width: auto;
+	}
 	&___close {
 		background: $color-danger;
+		box-shadow: $box-shadow-position $color-danger-dark;
+	}
+	&:focus,
+	&:hover {
+		background: $color-secondary;
+		box-shadow: $box-shadow-position $color-secondary-dark;
 	}
 }

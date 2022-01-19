@@ -4,7 +4,6 @@
 
 .Grid {
 	$spacing: 20px;
-	$tspeed: 200ms;
 	display: grid;
 	grid-template-columns: repeat(1, minmax(0, 1fr));
 	column-gap: $spacing;
@@ -21,14 +20,14 @@
 		flex-direction: column;
 		background-image: linear-gradient($bg-color-secondary, $bg-color-primary);
 		position: relative;
-		border-radius: 4px;
-		box-shadow: -1px 1px 4px rgba(0, 0, 0, 0.2);
+		box-shadow: -1px 1px 2px $color-primary-dark;
 		transform: scale(1);
-		transition: transform $tspeed, box-shadow $tspeed;
+		transition: transform $transition-speed-fast,
+			box-shadow $transition-speed-fast;
 		will-change: transform box-shadow;
 		cursor: pointer;
 		&:hover {
-			box-shadow: -1px 1px 8px rgba(0, 0, 0, 0.2);
+			box-shadow: -1px 1px 4px $color-primary-dark;
 			transform: scale(1.01);
 			z-index: 10;
 		}
@@ -46,7 +45,7 @@
 			flex-grow: 1;
 			padding: rem(10);
 			background-color: #fff;
-			transition: top $tspeed;
+			transition: top $transition-speed-fast;
 		}
 		&_head {
 			font-weight: 500;
@@ -55,16 +54,6 @@
 			justify-self: end;
 			font-size: rem(14);
 			font-style: italic;
-		}
-
-		&:hover {
-			// #{$item}_content {
-			// 	top: 0;
-			// }
-			// #{$item}_desc {
-			// 	max-height: 50%;
-			// 	opacity: 1;
-			// }
 		}
 	}
 }

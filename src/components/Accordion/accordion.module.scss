@@ -1,14 +1,13 @@
 @import '../../style/functions.scss';
+@import '../../style/variables.scss';
 
 .Accordion {
 	$spacing: rem(10);
-	$tspeed: 500ms;
-	display: block;
-	max-width: rem(400);
 	&_item {
 		$item: &;
 		overflow: hidden;
 		&_head {
+			align-content: space-between;
 			padding: $spacing;
 			font-weight: 500;
 			cursor: pointer;
@@ -19,20 +18,24 @@
 				left: -$spacing;
 				display: block;
 				width: 100%;
-				height: 1px;
-				background-color: grey;
-				transition: width $tspeed;
+				height: 2px;
+				background-color: $color-primary;
+				transition: width $transition-speed-mid;
 			}
 			&:hover {
 				&::after {
 					width: 80%;
 				}
 			}
+			&_inner {
+				display: flex;
+				align-content: space-between;
+			}
 		}
 		&_content {
 			max-height: 0;
-			border-left: 1px solid grey;
-			transition: max-height $tspeed;
+			border-left: 2px solid $color-primary;
+			transition: max-height $transition-speed-mid;
 			will-change: max-height;
 			overflow-y: auto;
 			&_inner {

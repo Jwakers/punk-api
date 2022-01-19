@@ -7,7 +7,7 @@ const GridItem = ({ item }) => {
 			<img className={style.Grid_item_image} src={image_url} alt={name} />
 			<div className={style.Grid_item_content}>
 				<div className={style.Grid_item_head}>
-					{name} (ABV: {abv})
+					{name} - {abv} abv
 				</div>
 				<div className={style.Grid_item_tag}>{tagline}</div>
 			</div>

@@ -2,6 +2,7 @@
 @import './variables.scss';
 
 body {
+	margin: 0;
 	font-family: 'Be Vietnam Pro', sans-serif;
 	font-weight: 400;
 	background-color: $bg-color-secondary;
@@ -9,4 +10,5 @@ body {
 		radial-gradient($bg-color-primary 1.3px, $bg-color-secondary 1.3px);
 	background-size: 52px 52px;
 	background-position: 0 0, 26px 26px;
+	color: $color-primary;
 }

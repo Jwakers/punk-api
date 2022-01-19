@@ -2,6 +2,7 @@
 @import '../../style/functions.scss';
 
 .Layout {
+	padding: 0 rem(10);
 	margin-left: auto;
 	margin-right: auto;
 	@include atMedium {

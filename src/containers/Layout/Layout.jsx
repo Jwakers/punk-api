@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import axios from 'axios';
 import style from './layout.module.scss';
 import Accordion from '../../components/Accordion/Accordion';
 import Grid from '../../components/Grid/Grid';
 import Filters from '../../components/Filters/Filters';
+import Nav from '../../components/Nav/Nav';
 
 const Layout = () => {
 	const initialParams = {
@@ -50,15 +52,30 @@ const Layout = () => {
 		setParams({ ...initialParams, ...cleanedFormData });
 	};
 
+	const handleSortOrder = (e) => {
+		console.log(e);
+	};
+
 	return (
 		<div className={style.Layout}>
-			{beers ? (
+			<Nav />
+			{beers && (
 				<>
-					<Accordion data={beers} />
-					<Filters onSubmit={handleSubmit} onChange={handleChange} />
-					<Grid data={beers} />
+					<Filters onSubmit={handleSubmit} onSort={handleSortOrder} />
+					<Routes>
+						<Route path='/' exact element={<Accordion data={beers} />} />
+						<Route
+							path='/grid'
+							exact
+							element={
+								<>
+									<Grid data={beers} />
+								</>
+							}
+						/>
+					</Routes>
 				</>
-			) : null}
+			)}
 		</div>
 	);
 };

@@ -1,24 +1,45 @@
-@import '../../style/functions.scss';
-@import '../../style/variables.scss';
+@import '../../style/functions';
+@import '../../style/variables';
+@import '../../style/mixins';
 
 .Filters {
 	margin: rem(20) 0;
 	display: flex;
+	flex-wrap: wrap;
 	align-content: space-between;
 	&_input {
-		$border: 2px solid $color-primary;
+		width: 100%;
 		padding: rem(4);
-		margin-right: rem(10);
+		margin-bottom: rem(10);
 		background: none;
 		border: none;
-		border-bottom: $border;
+		box-shadow: $box-shadow-position $color-primary;
+		transition: box-shadow $transition-speed-fast;
+		will-change: box-shadow;
+		@include atSmall {
+			width: auto;
+			margin-bottom: 0;
+			margin-right: rem(10);
+		}
 		&[type='number'] {
-			width: rem(80);
+			@include atSmall {
+				width: rem(80);
+			}
 		}
 		&:focus {
-			background-color: $bg-color-secondary;
-			border-left: $border;
-			outline: $border;
+			box-shadow: $box-shadow-position $color-secondary;
+			outline: none;
+		}
+		&___select {
+			margin-top: rem(10);
+			@include atSmall {
+				width: rem(350);
+			}
+			@include atMedium {
+				width: auto;
+				margin-left: auto;
+				margin-top: 0;
+			}
 		}
 	}
 }

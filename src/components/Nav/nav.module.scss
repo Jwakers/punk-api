@@ -1,2 +1,52 @@
+@import '../../style/functions';
+@import '../../style/variables';
+@import '../../style/mixins';
+
 .Nav {
+	display: flex;
+	flex-wrap: wrap;
+	@include atSmall {
+		margin: rem(20) 0;
+	}
+	&_item {
+		position: relative;
+		width: 100%;
+		padding: rem(6) 0;
+		font-size: rem(30);
+		font-weight: 500;
+		text-decoration: none;
+		opacity: 0.2;
+		transition: opacity $transition-speed-fast, color $transition-speed-fast;
+		will-change: opacity;
+		@include atSmall {
+			width: auto;
+		}
+		&::after {
+			content: '';
+			display: block;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			height: 4px;
+			width: 0;
+			background-color: $color-primary;
+			transition: width $transition-speed-mid,
+				background-color $transition-speed-fast;
+			will-change: width;
+		}
+		&:hover {
+			opacity: 1;
+		}
+		&___active {
+			color: $color-secondary;
+			opacity: 1;
+			&::after {
+				width: 10%;
+				background-color: $color-secondary;
+				@include atSmall {
+					width: 40%;
+				}
+			}
+		}
+	}
 }
