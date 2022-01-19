@@ -17,11 +17,9 @@
 	}
 	&_item {
 		$item: &;
-		background-image: linear-gradient(
-			$bg-color-secondary,
-			$bg-color-primary 80%,
-			#fff 80%
-		);
+		display: flex;
+		flex-direction: column;
+		background-image: linear-gradient($bg-color-secondary, $bg-color-primary);
 		position: relative;
 		border-radius: 4px;
 		box-shadow: -1px 1px 4px rgba(0, 0, 0, 0.2);
@@ -42,6 +40,10 @@
 			padding: rem(10) 0;
 		}
 		&_content {
+			display: flex;
+			flex-wrap: wrap;
+			align-content: space-between;
+			flex-grow: 1;
 			padding: rem(10);
 			background-color: #fff;
 			transition: top $tspeed;
@@ -50,6 +52,7 @@
 			font-weight: 500;
 		}
 		&_tag {
+			justify-self: end;
 			font-size: rem(14);
 			font-style: italic;
 		}

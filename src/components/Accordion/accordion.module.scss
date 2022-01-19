@@ -4,7 +4,7 @@
 	$spacing: rem(10);
 	$tspeed: 500ms;
 	display: block;
-	max-width: rem(300);
+	max-width: rem(400);
 	&_item {
 		$item: &;
 		overflow: hidden;
@@ -54,14 +54,7 @@
 			}
 		}
 	}
-	&_close {
-		display: block;
-		background: none;
-		border: none;
-		color: red;
-		margin-left: auto;
-		margin-top: rem(4);
-		padding: rem(10);
-		cursor: pointer;
+	button {
+		margin-top: rem(10);
 	}
 }

@@ -1,13 +1,35 @@
-import style from './filters.module.scss'
+import style from './filters.module.scss';
+import Button from '../Button/Button';
 
 const Filters = (props) => {
-    
-    return (
-        <div className={style.Filters}>
-            <input type="text" placeholder="Min ABV" value={props.minAbv} onChange={(event) => props.onChange(event)} />
-            <input type="text" placeholder="Max ABV" value={props.maxAbv} onChange={(event) => props.onChange(event)} />
-        </div>
-    )
-}
+	return (
+		<form onSubmit={props.onSubmit} className={style.Filters}>
+			<input
+				className={style.Filters_input}
+				type='number'
+				placeholder='Min ABV'
+				name='abv_gt'
+				min='0'
+				onChange={props.onChange}
+			/>
+			<input
+				className={style.Filters_input}
+				type='number'
+				placeholder='Max ABV'
+				name='abv_lt'
+				min='0'
+				onChange={props.onChange}
+			/>
+			<input
+				className={style.Filters_input}
+				type='text'
+				placeholder='Beer name'
+				name='beer_name'
+				onChange={props.onChange}
+			/>
+			<Button type='submit' value='submit' />
+		</form>
+	);
+};
 
-export default Filters
+export default Filters;

@@ -1,0 +1,19 @@
+import style from './button.module.scss';
+
+const Button = ({ value, onClick, modifiers = [], otherProps }) => {
+	const modsArr = modifiers.map((mod) => {
+		return style?.[mod] || '';
+	});
+
+	return (
+		<button
+			className={`${style.Button} ${modsArr && modsArr.join(' ')}`}
+			onClick={onClick}
+			{...otherProps}
+		>
+			{value}
+		</button>
+	);
+};
+
+export default Button;
