@@ -19,11 +19,12 @@ const Layout = () => {
 	const endpoint = 'https://api.punkapi.com/v2/beers';
 
 	useEffect(() => {
-		// Fetch objects from the API
 		fetchData(params);
 	}, [params]);
 
 	const fetchData = async () => {
+		// Fetch data from the API using the
+		// params state as a query string
 		try {
 			const response = await axios.get(endpoint, { params });
 			setBeers(response.data);
@@ -33,6 +34,8 @@ const Layout = () => {
 	};
 
 	const handleChange = (e) => {
+		// Programatically update form state
+		// using the event
 		const { name, value } = e.target;
 		setFormData({
 			...formData,
@@ -51,10 +54,13 @@ const Layout = () => {
 
 	const handleSortOrder = (e) => {
 		// Convert sort options to usable object
-		const options = JSON.parse(e?.target.value);
+		const options = JSON.parse(e.target.value);
 		const sortedBeers = [...beers];
 		sortedBeers.sort((a, b) => {
 			if (options.sort === 'desc') {
+				// The object property:[options.attr] is set in the value attribute
+				// of the <option> in the <Filter /> componenet.
+				// This gives flexibility for future sort options
 				if (a[options.attr] <= b[options.attr]) return 1;
 				return -1;
 			}

@@ -3,8 +3,7 @@
 
 .Layout {
 	padding: 0 rem(10) rem(20);
-	margin-left: auto;
-	margin-right: auto;
+	margin: 0 auto;
 	@include atMedium {
 		max-width: rem(620);
 	}

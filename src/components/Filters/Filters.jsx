@@ -2,6 +2,7 @@ import style from './filters.module.scss';
 import Button from '../Button/Button';
 
 const Filters = (props) => {
+	// Input names should correspond with api parameters
 	return (
 		<form onSubmit={props.onSubmit} className={style.Filters}>
 			<input
@@ -10,6 +11,7 @@ const Filters = (props) => {
 				placeholder='Min ABV'
 				name='abv_gt'
 				min='0'
+				step='0.1'
 				onChange={props.onChange}
 			/>
 			<input
@@ -18,6 +20,7 @@ const Filters = (props) => {
 				placeholder='Max ABV'
 				name='abv_lt'
 				min='0'
+				step='0.1'
 				onChange={props.onChange}
 			/>
 			<input
@@ -29,8 +32,9 @@ const Filters = (props) => {
 			/>
 			<Button type='submit' value='submit' />
 			<select
-				className={`${style.Filters_input} ${style.Filters_input___select}`}
-				name='sort_order'
+				className={[style.Filters_input, style.Filters_input___select].join(
+					' '
+				)}
 				onChange={props.onSort}
 				defaultValue='default'
 			>

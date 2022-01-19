@@ -2,6 +2,7 @@ import style from './button.module.scss';
 
 const Button = ({ value, onClick, modifiers = [], otherProps }) => {
 	const modsArr = modifiers.map((mod) => {
+		// Build an array of modifiers to concatinate into css classes
 		return style?.[mod] || '';
 	});
 

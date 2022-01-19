@@ -5,21 +5,21 @@ import Button from '../Button/Button';
 
 const Accordion = ({ data }) => {
 	const [openItems, setOpenItems] = useState([]);
-	const handleClick = (itemId) => {
+	const updateOpenState = (itemId) => {
+		// Toggle accordion item in and out of state (openItems)
 		if (openItems.includes(itemId)) {
 			setOpenItems(openItems.filter((id) => id !== itemId));
 		} else {
 			setOpenItems([...openItems, itemId]);
 		}
 	};
-	const handleKeypress = (event, itemId) => {
+	const handleClick = (itemId) => {
+		updateOpenState(itemId);
+	};
+	const handleKeypress = (e, itemId) => {
 		// Basic tab and enter key funtionality
-		if (event.key !== 'Enter') return;
-		if (openItems.includes(itemId)) {
-			setOpenItems(openItems.filter((id) => id !== itemId));
-		} else {
-			setOpenItems([...openItems, itemId]);
-		}
+		if (e.key !== 'Enter') return;
+		updateOpenState(itemId);
 	};
 	const handleCloseAll = () => {
 		setOpenItems([]);
@@ -31,18 +31,20 @@ const Accordion = ({ data }) => {
 				<AccordionItem
 					item={item}
 					key={item.id}
-					onClick={() => handleClick(item.id)}
-					handleKeypress={(event) => handleKeypress(event, item.id)}
+					onClick={handleClick.bind(null, item.id)}
+					handleKeypress={(e) => handleKeypress(e, item.id)}
 					isOpen={openItems.includes(item.id)}
 				/>
 			))}
-			{openItems.length ? (
-				<Button
-					onClick={handleCloseAll}
-					value='close all'
-					modifiers={['Button___close']}
-				/>
-			) : null}
+			{Boolean(openItems.length) && (
+				<div className={style.Accordion_close}>
+					<Button
+						onClick={handleCloseAll}
+						value='close all'
+						modifiers={['Button___close']}
+					/>
+				</div>
+			)}
 		</div>
 	);
 };

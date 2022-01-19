@@ -4,12 +4,12 @@
 .Button {
 	display: inline-block;
 	width: 100%;
-	background: $color-primary;
+	background-color: $color-primary;
 	border: none;
 	color: #fff;
 	padding: rem(10);
-	transition: background $transition-speed-fast;
-	will-change: background;
+	transition: background-color $transition-speed-fast;
+	will-change: background-color;
 	box-shadow: $box-shadow-position $color-primary-dark;
 	cursor: pointer;
 	@include atSmall {

@@ -17,7 +17,7 @@
 				top: $spacing;
 				left: -$spacing;
 				display: block;
-				width: 100%;
+				width: calc(100% + $spacing);
 				height: 2px;
 				background-color: $color-primary;
 				transition: width $transition-speed-mid;
@@ -34,7 +34,7 @@
 		}
 		&_content {
 			max-height: 0;
-			border-left: 2px solid $color-primary;
+			border-left: 4px solid $color-primary;
 			transition: max-height $transition-speed-mid;
 			will-change: max-height;
 			overflow-y: auto;
@@ -57,7 +57,7 @@
 			}
 		}
 	}
-	button {
+	&_close {
 		margin-top: rem(10);
 	}
 }

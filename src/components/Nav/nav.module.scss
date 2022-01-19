@@ -17,13 +17,12 @@
 		text-decoration: none;
 		opacity: 0.2;
 		transition: opacity $transition-speed-fast, color $transition-speed-fast;
-		will-change: opacity;
+		will-change: opacity, color;
 		@include atSmall {
 			width: auto;
 		}
 		&::after {
 			content: '';
-			display: block;
 			position: absolute;
 			bottom: 0;
 			left: 0;
@@ -32,7 +31,7 @@
 			background-color: $color-primary;
 			transition: width $transition-speed-mid,
 				background-color $transition-speed-fast;
-			will-change: width;
+			will-change: width, background-color;
 		}
 		&:hover {
 			opacity: 1;
